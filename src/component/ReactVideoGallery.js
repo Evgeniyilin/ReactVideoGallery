@@ -4,14 +4,16 @@ import React, {useState} from 'react';
 import { DefaultPlayer as Video} from 'react-html5video'
 import 'react-html5video/dist/styles.css'
 
+//custom css
+import './react-video-gallery.css'
 
 //media file
 import img1 from '../videos/video1.jpg';
 import video1 from '../videos/video1.mp4';
-import img2 from '../videos/video2.jpg';
-import video2 from '../videos/video2.mp4';
-import img3 from '../videos/video3.jpg';
-import video3 from '../videos/video3.mp4';
+import img2 from '../videos/video1.jpg';
+import video2 from '../videos/video1.mp4';
+import img3 from '../videos/video1.jpg';
+import video3 from '../videos/video1.mp4';
 
 const ReactVideoGallery = () => {
 
