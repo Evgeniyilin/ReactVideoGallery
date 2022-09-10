@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, createRef} from 'react';
 
 // video player
 import { DefaultPlayer as Video} from 'react-html5video'
@@ -36,14 +36,27 @@ const ReactVideoGallery = () => {
             videoUri: video3,
         },
     ]
+
     return (
         <>
             <h1 style={{textAlign: 'center'}}>Video Gallery</h1>
             <div className="gallery">
                 {data.map((item, index) => {
+                    let divRef = createRef(null);
+                    const openModel = () => {
+                        divRef.current.classList.remove('video');
+                        divRef.current.classList.add('model');
+                        setModel(true);
+                    }
+                    const closeModel = () => {
+                        divRef.current.classList.add('video');
+                        divRef.current.classList.remove('model');
+                        setModel(false);
+                    }
                     return (
-                        <div className="video" key={index}>
-                            <div className="video-container">
+                        <div ref={divRef} className="video" key={index}>
+                            {model && <button className="model-close-btn" onClick={()=>closeModel()}>X</button>}
+                            <div className="video-container" onClick={()=>openModel()}>
                                 <Video
                                     style={{width: '100%'}}
                                     autoPlay={model}
